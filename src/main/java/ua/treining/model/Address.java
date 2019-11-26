@@ -5,7 +5,7 @@ package ua.treining.model;
  */
 public class Address {
 
-    private String index;
+    private String postalCode;
     private String cityName;
     private String street;
     private int houseNumber;
@@ -15,7 +15,7 @@ public class Address {
     }
 
     public Address(String index, String cityName, String street, int houseNumber, int apartmentNumber) {
-        this.index = index;
+        this.postalCode = index;
         this.cityName = cityName;
         this.street = street;
         this.houseNumber = houseNumber;
@@ -23,11 +23,11 @@ public class Address {
     }
 
     public String getIndex() {
-        return index;
+        return postalCode;
     }
 
     public void setIndex(String index) {
-        this.index = index;
+        this.postalCode = index;
     }
 
     public String getCityName() {
