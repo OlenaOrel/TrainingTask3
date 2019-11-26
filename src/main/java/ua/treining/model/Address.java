@@ -10,6 +10,7 @@ public class Address {
     private String street;
     private int houseNumber;
     private int apartmentNumber;
+    private String fullAddress;
 
     public Address() {
     }
@@ -20,6 +21,23 @@ public class Address {
         this.street = street;
         this.houseNumber = houseNumber;
         this.apartmentNumber = apartmentNumber;
+    }
+
+    public void setFullAddress() {
+        StringBuffer fullAddress = new StringBuffer();
+        String separator = ", ";
+        fullAddress.append(postalCode).append(separator).append(cityName).append(separator)
+                .append(street).append(separator).append(houseNumber).append(separator)
+                .append(apartmentNumber);
+        this.fullAddress = fullAddress.toString();
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public String getIndex() {
@@ -60,5 +78,9 @@ public class Address {
 
     public void setApartmentNumber(int apartmentNumber) {
         this.apartmentNumber = apartmentNumber;
+    }
+
+    public String getFullAddress() {
+        return fullAddress;
     }
 }

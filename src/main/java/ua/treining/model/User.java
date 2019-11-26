@@ -10,6 +10,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String middleName;
+    private String secondNameFirstName;
     private String login;
     private List<String> groups;
     private String homePhoneNumber;
@@ -19,6 +20,11 @@ public class User {
     private String skypeName;
     private Address address;
     private String registrationDate;
+
+    public void setSecondNameFirstName() {
+        secondNameFirstName = lastName;
+        secondNameFirstName.concat(" ").concat(firstName.substring(0, 1)).concat(".");
+    }
 
     public String getFirstName() {
         return firstName;
