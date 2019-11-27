@@ -18,7 +18,7 @@ public class User {
     private String secondPhoneNumber;
     private String emailAddress;
     private String skypeName;
-    private Address address;
+    private String address;
     private String registrationDate;
 
     public void setSecondNameFirstName() {
@@ -106,12 +106,12 @@ public class User {
         this.skypeName = skypeName;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
     public void setAddress(Address address) {
-        this.address = address;
+        this.address = address.getFullAddress();
     }
 
     public String getRegistrationDate() {
