@@ -9,4 +9,9 @@ public class View {
         System.out.println(message);
     }
 
+    public void printWrongInputMessage(String message) {
+        System.out.print(ViewMessages.WRONG_INPUT);
+        System.out.println(message);
+    }
+
 }
