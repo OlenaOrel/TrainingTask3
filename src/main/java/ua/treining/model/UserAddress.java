@@ -3,19 +3,19 @@ package ua.treining.model;
 /**
  * Created by Olena Orel on 26.11.2019.
  */
-public class Address {
+public class UserAddress {
 
     private String postalCode;
     private String cityName;
     private String street;
     private int houseNumber;
     private int apartmentNumber;
-    private String fullAddress;
+    private String fullAddressString;
 
-    public Address() {
+    public UserAddress() {
     }
 
-    public Address(String index, String cityName, String street, int houseNumber, int apartmentNumber) {
+    public UserAddress(String index, String cityName, String street, int houseNumber, int apartmentNumber) {
         this.postalCode = index;
         this.cityName = cityName;
         this.street = street;
@@ -23,13 +23,13 @@ public class Address {
         this.apartmentNumber = apartmentNumber;
     }
 
-    public void setFullAddress() {
+    public void createStringAddress() {
         StringBuffer fullAddress = new StringBuffer();
         String separator = ", ";
         fullAddress.append(postalCode).append(separator).append(cityName).append(separator)
                 .append(street).append(separator).append(houseNumber).append(separator)
                 .append(apartmentNumber);
-        this.fullAddress = fullAddress.toString();
+        this.fullAddressString = fullAddress.toString();
     }
 
     public String getPostalCode() {
@@ -38,14 +38,6 @@ public class Address {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
-    }
-
-    public String getIndex() {
-        return postalCode;
-    }
-
-    public void setIndex(String index) {
-        this.postalCode = index;
     }
 
     public String getCityName() {
@@ -80,7 +72,7 @@ public class Address {
         this.apartmentNumber = apartmentNumber;
     }
 
-    public String getFullAddress() {
-        return fullAddress;
+    public String getFullAddressString() {
+        return fullAddressString;
     }
 }

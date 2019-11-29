@@ -110,8 +110,8 @@ public class User {
         return address;
     }
 
-    public void setAddress(Address address) {
-        this.address = address.getFullAddress();
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getRegistrationDate() {
