@@ -83,7 +83,6 @@ public class UserController {
 
     private String createRegistrationDate() {
         LocalDate date = LocalDate.now();
-        System.out.println(date.toString());
         return date.toString();
     }
 }
