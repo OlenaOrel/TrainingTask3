@@ -39,16 +39,14 @@ public class AddressController {
                 RegexController.STREET_NAME);
     }
 
-    private int getCorrectInputHouseNumber() {
-        String res = contrUtil.inputStringValueWithScanner(ViewMessages.INPUT_HOUSE_NUMBER,
+    private String getCorrectInputHouseNumber() {
+        return contrUtil.inputStringValueWithScanner(ViewMessages.INPUT_HOUSE_NUMBER,
                 RegexController.NUMBER_OF_HOUSE_OR_APARTMENT);
-        return Integer.parseInt(res);
     }
 
-    private int getCorrectInputApartmentNumber() {
-        String res = contrUtil.inputStringValueWithScanner(ViewMessages.INPUT_APARTMENT_NUMBER,
+    private String getCorrectInputApartmentNumber() {
+        return contrUtil.inputStringValueWithScanner(ViewMessages.INPUT_APARTMENT_NUMBER,
                 RegexController.NUMBER_OF_HOUSE_OR_APARTMENT);
-        return Integer.parseInt(res);
     }
 
 }

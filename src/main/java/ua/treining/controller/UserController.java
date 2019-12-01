@@ -5,19 +5,21 @@ import ua.treining.model.User;
 import ua.treining.model.UserAddress;
 import ua.treining.view.ViewMessages;
 
+import java.time.LocalDate;
+
 public class UserController {
 
     private UtilityController contrUtil;
     private AddressController addressController;
     private Model model;
 
-    UserController(UtilityController contrUtil, AddressController addressController, Model model) {
+    UserController(UtilityController contrUtil, Model model) {
         this.contrUtil = contrUtil;
-        this.addressController = addressController;
         this.model = model;
+        addressController = new AddressController(contrUtil, model);
     }
 
-    User addUser() {
+    User createNewUser() {
         User user = model.getUser();
         user.setFirstName(getCorrectInputFirstName());
         user.setLastName(getCorrectInputLastName());
@@ -29,7 +31,7 @@ public class UserController {
         user.setEmailAddress(getCorrectInputEmailAddress());
         user.setSkypeName(getCorrectInputSkypeName());
         user.setAddress(getUserAddressString());
-//        user.setRegistrationDate();
+        user.setRegistrationDate(createRegistrationDate());
         return user;
     }
 
@@ -49,20 +51,18 @@ public class UserController {
     }
 
     private String getCorrectInputLogin() {
-        String res = contrUtil.inputStringValueWithScanner(ViewMessages.INPUT_LOGIN,
+        return contrUtil.inputStringValueWithScanner(ViewMessages.INPUT_LOGIN,
                 RegexController.LOGIN_REGEX);
-        return res;
     }
 
     private String getCorrectInputHomePhoneNumber() {
-        return contrUtil.inputStringValueWithScanner(ViewMessages.INPUT_HOUSE_NUMBER,
-                RegexController.PHONE_NUMBER);
+        return contrUtil.inputStringValueWithScanner(ViewMessages.INPUT_HOME_PHONE_NUMBER,
+                RegexController.HOME_PHONE_NUMBER);
     }
 
     private String getCorrectInputPhoneNumber() {
-        String res = contrUtil.inputStringValueWithScanner(ViewMessages.INPUT_PHONE_NUMBER,
+        return contrUtil.inputStringValueWithScanner(ViewMessages.INPUT_PHONE_NUMBER,
                 RegexController.PHONE_NUMBER);
-        return res;
     }
 
     private String getCorrectInputEmailAddress() {
@@ -79,5 +79,11 @@ public class UserController {
         UserAddress address = addressController.setInputUserAddress();
         address.createStringAddress();
         return address.getFullAddressString();
+    }
+
+    private String createRegistrationDate() {
+        LocalDate date = LocalDate.now();
+        System.out.println(date.toString());
+        return date.toString();
     }
 }

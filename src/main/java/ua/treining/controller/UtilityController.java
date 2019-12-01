@@ -18,8 +18,8 @@ public class UtilityController {
         String res;
         view.print(message);
         while (!(scanner.hasNext() &&
-                (res = scanner.next()).matches(regex))) {
-            view.print(message);
+                (res = scanner.nextLine()).matches(regex))) {
+            view.printWrongInputMessage(message);
         }
         return res;
     }

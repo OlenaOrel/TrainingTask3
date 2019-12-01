@@ -22,9 +22,8 @@ public class Controller {
     public void process() {
         Scanner scanner = new Scanner(System.in);
         UtilityController utilityController = new UtilityController(scanner, view);
-        AddressController addressController = new AddressController(utilityController, model);
-        UserController userController = new UserController(utilityController, addressController, model);
-        userController.addUser();
+        UserController userController = new UserController(utilityController, model);
+        userController.createNewUser();
     }
 
 

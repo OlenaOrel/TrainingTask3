@@ -8,14 +8,14 @@ public class UserAddress {
     private String postalCode;
     private String cityName;
     private String street;
-    private int houseNumber;
-    private int apartmentNumber;
+    private String houseNumber;
+    private String apartmentNumber;
     private String fullAddressString;
 
     public UserAddress() {
     }
 
-    public UserAddress(String index, String cityName, String street, int houseNumber, int apartmentNumber) {
+    public UserAddress(String index, String cityName, String street, String houseNumber, String apartmentNumber) {
         this.postalCode = index;
         this.cityName = cityName;
         this.street = street;
@@ -29,7 +29,7 @@ public class UserAddress {
         fullAddress.append(postalCode).append(separator).append(cityName).append(separator)
                 .append(street).append(separator).append(houseNumber).append(separator)
                 .append(apartmentNumber);
-        this.fullAddressString = fullAddress.toString();
+        setFullAddressString(fullAddress.toString());
     }
 
     public String getPostalCode() {
@@ -56,20 +56,24 @@ public class UserAddress {
         this.street = street;
     }
 
-    public int getHouseNumber() {
+    public String getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(int houseNumber) {
+    public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
     }
 
-    public int getApartmentNumber() {
+    public String getApartmentNumber() {
         return apartmentNumber;
     }
 
-    public void setApartmentNumber(int apartmentNumber) {
+    public void setApartmentNumber(String apartmentNumber) {
         this.apartmentNumber = apartmentNumber;
+    }
+
+    public void setFullAddressString(String fullAddressString) {
+        this.fullAddressString = fullAddressString;
     }
 
     public String getFullAddressString() {
